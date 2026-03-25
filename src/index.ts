@@ -39,6 +39,7 @@ req.body에 담김
 
 💡 한 줄 정리
 👉 express.json() = "클라이언트가 보낸 JSON을 읽기 쉽게 변환해주는 도구"
+여기서 👉 mockPosts 안의 요소들 = JS 객체 , 👉 JSON = 그걸 문자열로 바꾼 것
  */
 
 
