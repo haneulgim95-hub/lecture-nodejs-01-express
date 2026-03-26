@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 
-// 1. 환경 변수 초기화
 dotenv.config();
+// 1. 환경 변수 초기화 -> 환경변수를 불러오게끔 한다. 파일 맨 위에 작성. 한번만 불러오면 된다.
 
 // 2. Express 앱 생성
 const app = express();
@@ -44,8 +44,6 @@ req.body에 담김
 
 
 
-
-
 // 데이터베이스가 없어서 임시로 만든 데이터 변수 (mock)
 const mockPosts = [
     { id: 1, title: "첫 번째 택배", content: "무사히 도착했습니다." },
@@ -78,8 +76,8 @@ app.get("/posts", (req, res) => {
 
 // 3. app.listen : 서버를 실행하는 메소드
 //      매개변수 2 개 (포트번호, 함수)
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     // 얘가 실행되면 처음 할 일
-    console.log("서버가 실행 되었습니다. http://localhost:3000");
-})
+    console.log(`서버가 실행 되었습니다. http://localhost:${process.env.PORT}`);
+});
 
