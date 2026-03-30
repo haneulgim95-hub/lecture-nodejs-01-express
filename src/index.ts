@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import postRouter from "./routes/postRouter.ts";
-import userRouter from "./routes/userRouter.ts";
-import path from "path";   /* postRouter를 가져온다. */
+import path from "path";
+import userRouter from "./routes/userRouter.ts";   /* postRouter를 가져온다. */
 
 dotenv.config();
 // 1. 환경 변수 초기화 -> 환경변수를 불러오게끔 한다. 파일 맨 위에 작성. 한번만 불러오면 된다.
@@ -48,15 +48,11 @@ req.body에 담김
 //express.static(열어줄 경로) : 정적 파일들을 제공하는 미들웨어
 app.use(express.static(path.join(process.cwd(), "public")));
 
-
 // 첫번째 일꾼
 // app.get("/", () => {})
 // "/"로 들어왔을 때 동작되는 일꾼
-app.get("/", (req,res) => {
-    // res.sendFile(파일경로) : 응답에 file 내용을 담아서 전달
-    // path.join(경로1, 경로2. 경로3 ...) : 경로를 합쳐주는 메소드
-    // process.cwd() : 현재 실행중인 Node.js 프로세스가 실행되는 디렉토리 경로를 반환
-    res.sendFile(path.join(process.cwd(), "public", "login.html"));
+app.get("/", (req, res) => {
+    res.sendFile(path.join(process.cwd(), "public", "index.html"));
 })
 
 // 두번째 일꾼
